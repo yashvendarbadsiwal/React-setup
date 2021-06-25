@@ -1,18 +1,25 @@
-import {FadeTransform, Fade} from 'react-animation-components'
+import { BrowserRouter, NavLink } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.scss';
 
-import Temp1 from './Components/temp1';
+import MainComponent from './Components/MainComponent';
+
 
 function App() {
   return (
     <div className="App">
-      <FadeTransform in transformProps={{exitTransform:'scale(0.5) translateY(-50%)'}}>
-        <Temp1 />
-      </FadeTransform>
-      <Fade in enterOpacity={0.85}>
-        <h1>I'm transitioning to opacity:0.85</h1>
-      </Fade>
+      
+      <BrowserRouter>
+      <div className="navigationHeader">
+        <NavLink to="/home">Home</NavLink>
+        <NavLink to="/temp1">Temp1</NavLink>
+        <NavLink to="/temp2">Temp2</NavLink>
+        <NavLink to="/text">Text</NavLink>
+      </div>
+        <MainComponent />
+      </BrowserRouter>
+      
+      
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
