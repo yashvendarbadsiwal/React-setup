@@ -1,12 +1,15 @@
 import { BrowserRouter, NavLink } from "react-router-dom";
+import { Provider } from "react-redux";
 import logo from "./logo.svg";
 import "./App.scss";
 
 import MainComponent from "./Components/MainComponent";
-
+import { configureStore } from "./redux/configureStore";
+const store =configureStore();
 function App() {
   return (
     <div className="App">
+      <Provider store={store}>
       <BrowserRouter>
         <div className="navigationHeader">
           <NavLink to="/home">Home</NavLink>
@@ -17,26 +20,13 @@ function App() {
         <MainComponent />
       </BrowserRouter>
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
       <div className="container">
         <div className="row">
           <div className="col-4">Hii Yash</div>
           <div className="col-6">Badsiwal</div>
         </div>
       </div>
+      </Provider>
     </div>
   );
 }
